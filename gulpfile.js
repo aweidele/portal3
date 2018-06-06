@@ -8,6 +8,7 @@ var uglify = require('gulp-uglify');
 var pump = require('pump');
 var iconfont = require('gulp-iconfont');
 var iconfontCss = require('gulp-iconfont-css');
+var twig = require('gulp-twig');
 
 var sassOptions = {
   errLogToConsole: true,
@@ -37,6 +38,12 @@ gulp.task('compress', function() {
     .pipe(gulp.dest('js'));
 });
 
+gulp.task('templates', function() {
+    return gulp.src('src/twig/templates/*.twig') // run the Twig template parser on all .html files in the "src" directory
+        .pipe(twig())
+        .pipe(gulp.dest('')); // output the rendered HTML files to the "dist" directory
+});
+
 gulp.task('iconfont', function(){
   gulp.src(['src/icons/*.svg'])
     .pipe(iconfontCss({
@@ -56,6 +63,7 @@ gulp.task('iconfont', function(){
 gulp.task('watch', function(){
   gulp.watch('src/sass/**/*.scss', ['sass']);
   gulp.watch('src/js/**/*.js', ['compress']);
+  gulp.watch('src/twig/templates/**/*.twig', ['templates']);
   gulp.watch('src/icons/**/*.svg', ['iconfont','sass']);
 });
 
