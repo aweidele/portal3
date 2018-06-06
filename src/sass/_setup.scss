@@ -1,7 +1,34 @@
+/// Variables
+$max_width: 1400px;
+$outer_padding: 20px;
+
+$f_light: 300;
+$f_reg: 400;
+$f_bold: 700;
+
+/// Mixins
+@mixin content_centered {
+  width: 100%;
+  max-width: $max_width + ($outer_padding * 2);
+  margin: auto;
+  padding: 0 $outer_padding;
+}
+
+/// Reset
 * {
   border: 0;
   box-sizing: border-box;
+  font-weight: $f_reg;
   margin: 0;
   outline: none;
   padding: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.page_wrapper {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #6bb8ee 23%,#f0f0e9 77%);
 }
