@@ -67,4 +67,4 @@ gulp.task('watch', function(){
   gulp.watch('src/icons/**/*.svg', ['iconfont','sass']);
 });
 
-gulp.task('default', ['sass', 'compress', 'watch']);
+gulp.task('default', ['sass', 'compress', 'templates', 'watch']);
