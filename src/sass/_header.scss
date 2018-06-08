@@ -40,3 +40,73 @@ header {
 .header_right {
   order: 3;
 }
+
+.quicklinks {
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  li {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    line-height: 32px;
+    margin-left: 20px;
+  }
+
+  a {
+    width: 100%;
+    height: 100%;
+
+    border: 2px solid $white;
+    border-radius: 50%;
+    color: $white;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.25s;
+
+    &.google {
+      background: $google;
+
+      &:hover {
+        background: lighten($google,8);
+      }
+    }
+
+    &.gmail {
+      background: $gmail;
+
+      &:hover {
+        background: lighten($gmail,8);
+      }
+    }
+
+    &.facebook {
+      background: $facebook;
+
+      &:hover {
+        background: lighten($facebook,8);
+      }
+    }
+
+    &.twitter {
+      background: $twitter;
+
+      &:hover {
+        background: lighten($twitter,8);
+      }
+    }
+
+    span {
+      @include visually_hide;
+    }
+
+    i {
+      position: relative;
+      top: -2px;
+    }
+  }
+}
