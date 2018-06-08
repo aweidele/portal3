@@ -37,11 +37,16 @@ header {
   }
 }
 
+.header_left {
+  order: 1;
+}
+
 .header_right {
   order: 3;
 }
 
 .quicklinks {
+  margin-bottom: 20px;
   ul {
     list-style: none;
     display: flex;
@@ -49,11 +54,14 @@ header {
   }
 
   li {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     font-size: 20px;
-    line-height: 32px;
-    margin-left: 20px;
+    line-height: 34px;
+
+    + li {
+      margin-left: 22px;
+    }
   }
 
   a {
@@ -107,6 +115,46 @@ header {
     i {
       position: relative;
       top: -2px;
+    }
+  }
+}
+
+.calendar {
+  color: $white;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  text-align: center;
+
+  .month {
+    display: block;
+    font-size: 25px;
+    font-weight: $f_light;
+    line-height: 1em;
+  }
+
+  .day {
+    font-size: 51px;
+    font-weight: $f_light;
+    line-height: (44 / 51) * 1em;
+  }
+}
+
+.calendar_grid {
+  margin-left: 18px;
+  th,td {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  th {
+    font-weight: $f_bold;
+  }
+
+  td {
+    font-weight: $f_light;
+    &.current {
+      color: $gray;
     }
   }
 }
