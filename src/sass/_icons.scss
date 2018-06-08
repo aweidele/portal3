@@ -1,0 +1,38 @@
+@font-face {
+	font-family: "portal";
+	src: url('../fonts/portal.eot');
+	src: url('../fonts/portal.eot?#iefix') format('eot'),
+		url('../fonts/portal.woff2') format('woff2'),
+		url('../fonts/portal.woff') format('woff'),
+		url('../fonts/portal.ttf') format('truetype'),
+		url('../fonts/portal.svg#portal') format('svg');
+}
+
+.icon:before {
+	font-family: "portal";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	/* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+	text-decoration: none;
+	text-transform: none;
+}
+
+
+.icon-facebook:before {
+	content: "\E001";
+}
+
+.icon-google:before {
+	content: "\E002";
+}
+
+.icon-mail:before {
+	content: "\E003";
+}
+
+.icon-twitter:before {
+	content: "\E004";
+}

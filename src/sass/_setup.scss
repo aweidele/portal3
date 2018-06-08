@@ -6,12 +6,23 @@ $f_light: 300;
 $f_reg: 400;
 $f_bold: 700;
 
+// colors
+$white: #FFFFFF;
+$blue: #6bb8ee;
+$cream: #f0f0e9;
+$gray: #666663;
+
 /// Mixins
 @mixin content_centered {
   width: 100%;
   max-width: $max_width + ($outer_padding * 2);
   margin: auto;
   padding: 0 $outer_padding;
+}
+
+@mixin visually_hide {
+  position: absolute;
+  left: -999999px;
 }
 
 /// Reset
@@ -30,5 +41,5 @@ body {
 
 .page_wrapper {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #6bb8ee 23%,#f0f0e9 77%);
+  background: linear-gradient(to bottom, $blue 23%,$cream 77%);
 }

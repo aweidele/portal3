@@ -1,4 +1,5 @@
-{% set title = "Aaron's Portal"
+{%
+  set title = "Aaron's Portal"
  %}<!DOCTYPE HTML>
 <html>
 <head>
@@ -11,6 +12,15 @@
   <header>
     <div class="header_center">
       <h1>{{title}}</h1>
+      <div class="google_search">
+        <form action="http://www.google.com/search" method="GET">
+          <input type="text" value="" maxlength="255" size="31" name="q" placeholder="Search Google">
+          <input type="submit" value="Search" name="btnG">
+        </form>
+      </div>
+    </div>
+    <div class="header_right">
+      Hi!
     </div>
   </header>
   <main>

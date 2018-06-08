@@ -1,4 +1,42 @@
 header {
   @include content_centered;
+  width: 100%;
   display: flex;
+  justify-content: space-between;
+  padding: 52px $outer_padding;
+}
+
+.header_center {
+  order: 2;
+
+  h1 {
+    color: $white;
+    font-size: 49px;
+    font-weight: $f_light;
+    letter-spacing: 0.4em;
+    padding-left: 0.4em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.google_search {
+  input[type="submit"] {
+    @include visually_hide;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    background: $gray;
+    mix-blend-mode: multiply;
+    border-radius: 6px;
+    color: $white;
+    font-family: 'Lato', sans-serif;
+    font-size: 21px;
+    padding: 8px;
+  }
+}
+
+.header_right {
+  order: 3;
 }
