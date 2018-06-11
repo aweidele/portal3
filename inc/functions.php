@@ -1,5 +1,5 @@
 <?php
-require("simplepie/php/autoloader.php");
+//require("simplepie/php/autoloader.php");
 $connection = mysql_pconnect("localhost", "angrychi_angryc", "gS87gh7IGHas") or die ("Couldn't connect to server.");
 $db = mysql_select_db("angrychi_portal", $connection) or die ("Couldn't select database");
   $cats = array();
@@ -8,7 +8,7 @@ $db = mysql_select_db("angrychi_portal", $connection) or die ("Couldn't select d
 ////////////// GET BOOKMARKS /////////////
 //////////////////////////////////////////
 function get_bookmarks() {
-  
+
   global $connection,$db,$cats;
   $bookmarks = array();
 
@@ -29,7 +29,7 @@ function get_bookmarks() {
   $sql = "
 	SELECT		linkName, url, catName, linkID, clicks
 	FROM		links, link_cat
-	WHERE		active = 1 AND catID = cat		
+	WHERE		active = 1 AND catID = cat
 	ORDER BY	rank, linkName";
   $sql_result = mysql_query($sql, $connection) or die ("Couldn't execute query.");
   while ($row = mysql_fetch_array($sql_result)) {
@@ -40,7 +40,7 @@ function get_bookmarks() {
       "clicks"   => $row["clicks"]
     ));
   }
-  
+
   return($bookmarks);
 } // get_bookmarks()
 
@@ -64,7 +64,7 @@ function display_pop_bookmarks() {
       "clicks"   => $row["clicks"]
     );
   }
-  
+
   return $pop;
 }
 
@@ -86,9 +86,9 @@ $pop = display_pop_bookmarks();
 <?php
 $b = get_bookmarks();
 $badchars = array(" ","/");
-foreach($b as $key => $links) { 
+foreach($b as $key => $links) {
   $id = strtolower(str_replace($badchars,"-",$key));
-  
+
   if( sizeof($links) ) { ?>
 
 
@@ -112,20 +112,20 @@ foreach($b as $key => $links) {
 //////////////////////////////////
 function get_feeds() {
   global $connection,$db;
-  
+
   $sql = "SELECT * FROM feeds WHERE inv = 1 ORDER BY active, feedrank";
-  $sql_result = mysql_query($sql, $connection) or die ("Couldn't execute query."); 
+  $sql_result = mysql_query($sql, $connection) or die ("Couldn't execute query.");
   while ($row = mysql_fetch_array($sql_result)) {
     $feedURL = $row["feedURL"];
     $active = $row["active"];
     $feedID = $row["feedID"];
     $showdesc = $row["showdesc"];
-    
+
     $feed = new SimplePie();
     $feed->set_feed_url($feedURL);
     $feed->init();
     $feed->handle_content_type();
-    
+
     $badchars = array(" ","/",":");
     $id = strtolower(str_replace($badchars,"-",$feed->get_title() ));
 ?>
@@ -150,10 +150,10 @@ function bookmark_cat() {
     SELECT   catName,catID
     FROM     link_cat
     ORDER BY catName ";
-  $sql_result = mysql_query($sql, $connection) or die ("Couldn't execute query."); 
+  $sql_result = mysql_query($sql, $connection) or die ("Couldn't execute query.");
   while ($row = mysql_fetch_array($sql_result)) { ?>
           <option value="<?php echo $row["catID"]; ?>"><?php echo $row["catName"]; ?></option>
-<?php 
+<?php
   }
 }
 ?>
