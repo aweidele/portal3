@@ -1,3 +1,44 @@
 main {
+  //
+}
+.category {
+  padding: 40px 0;
+}
+
+.category_inner {
   @include content_centered;
+  display: flex;
+  align-items: center;
+
+  h2 {
+    width: 20%;
+    font-size: 36px;
+    font-weight: $f_light;
+  }
+
+  ul {
+    flex-grow: 1;
+    list-style: none;
+    columns: 3;
+  }
+
+  li {
+    font-size: 14px;
+    line-height: (24 / 14) * 1em;
+  }
+
+  a {
+    color: $black;
+    text-decoration: none;
+    transition: color 0.25s;
+
+    &:hover {
+      color: $facebook;
+    }
+  }
+}
+
+.most_clicked {
+  background-color: #F0F0E9;
+  mix-blend-mode: multiply;
 }
