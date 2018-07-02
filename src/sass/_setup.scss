@@ -18,6 +18,9 @@ $gmail: #DD4B39;
 $facebook: #3B5998;
 $twitter: #00ACED;
 
+// Breakpoint
+$minMD: "screen and (min-width: 980px)";
+
 /// Mixins
 @mixin content_centered {
   width: 100%;

@@ -2,12 +2,20 @@ header {
   @include content_centered;
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  padding: 52px $outer_padding;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px $outer_padding;
+
+  @media #{$minMD} {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 52px $outer_padding;
+  }
 }
 
 .header_center {
-  order: 2;
+  order: 1;
+  width: 100%;
 
   h1 {
     color: $white;
@@ -17,6 +25,13 @@ header {
     padding-left: 0.4em;
     text-align: center;
     text-transform: uppercase;
+  }
+
+  @media #{$minMD} {
+    width: auto;
+    flex-grow: 1;
+    order: 2;
+    padding: 0 75px;
   }
 }
 
@@ -39,11 +54,20 @@ header {
 
 .header_left {
   order: 1;
+  padding: 20px;
   //display: none;
 }
 
 .header_right {
   order: 3;
+  padding: 20px;
+}
+
+@media #{$minMD} {
+  .header_left,
+  .header_right {
+    padding: 0;
+  }
 }
 
 .quicklinks {
