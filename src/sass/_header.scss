@@ -39,7 +39,7 @@ header {
 
 .header_left {
   order: 1;
-  display: none;
+  //display: none;
 }
 
 .header_right {
@@ -157,5 +157,38 @@ header {
     &.current {
       color: $gray;
     }
+  }
+}
+
+
+.weather {
+  color: $white;
+}
+
+.current_conditions {
+  text-align: center;
+
+  .current_temp {
+    font-size: 81px;
+    font-weight: $f_light;
+  }
+
+  .current_details {
+    font-size: 18px;
+    font-weight: $f_reg;
+  }
+}
+
+.forcast {
+  width: 100%;
+  min-width: 245px;
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 }
