@@ -19,8 +19,12 @@ $facebook: #3B5998;
 $twitter: #00ACED;
 
 // Breakpoint
+$minXS: "screen and (min-width: 425px)";
+$minSM: "screen and (min-width: 768px)";
 $minMD: "screen and (min-width: 980px)";
-
+$minLG: "screen and (min-width: 1440px)";
+$minXL: "screen and (min-width: 1600px)";
+$minXXL: "screen and (min-width: 1800px)";
 /// Mixins
 @mixin content_centered {
   width: 100%;

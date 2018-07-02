@@ -16,7 +16,26 @@ main {
   ul {
     flex-grow: 1;
     list-style: none;
-    columns: 3;
+
+    @media #{$minXS} {
+      columns: 2;
+    }
+
+    @media #{$minSM} {
+      columns: 3;
+    }
+
+    @media #{$minLG} {
+      columns: 4;
+    }
+
+    @media #{$minXL} {
+      columns: 5;
+    }
+
+    @media #{$minXXL} {
+      columns: 6;
+    }
   }
 
   li {
