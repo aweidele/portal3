@@ -1,5 +1,5 @@
 <?php
-require_once("inc/function.php");
+require_once("inc/functions.php");
 ?>
 <!DOCTYPE HTML>
 <html>

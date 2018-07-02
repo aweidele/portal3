@@ -1,7 +1,17 @@
 <?php
 
 function calendar() {
+  $month = date('n');
+  $year = date('Y');
+  $day = date('j');
+  $totalDays = date('t');
+  $firstDay = date('w',mktime(0,0,0,$month,1,$year));
   ?>
+  <div>
+    <?= $totalDays ?><br>
+    <?= $month ?> / <?= $day ?> / <?= $year ?><br>
+    <?= $firstDay ?>
+  </div>
 
   <table class="calendar_grid">
     <thead>
