@@ -25,6 +25,8 @@ $minMD: "screen and (min-width: 980px)";
 $minLG: "screen and (min-width: 1440px)";
 $minXL: "screen and (min-width: 1600px)";
 $minXXL: "screen and (min-width: 1800px)";
+
+$maxMD: "screen and (min-width: 425px) and (max-width: 981px)";
 /// Mixins
 @mixin content_centered {
   width: 100%;
