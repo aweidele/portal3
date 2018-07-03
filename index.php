@@ -76,10 +76,6 @@ require_once("inc/functions.php");
         </ul>
       </nav>
       <div class="calendar">
-        <div class="date">
-          <span class="month">Jan</span>
-          <span class="day">28</span>
-        </div>
         <?php calendar(); ?>
       </div>
     </div>
