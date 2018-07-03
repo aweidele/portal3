@@ -1,5 +1,9 @@
 <?php
 
+$title = "Aaron’s Portal";
+
+
+
 function calendar() {
   $month = date('n');
   //$month = 2;

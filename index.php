@@ -4,7 +4,7 @@ require_once("inc/functions.php");
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>Stuff</title>
+  <title><?= $title ?></title>
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -13,7 +13,7 @@ require_once("inc/functions.php");
 <div class="page_wrapper">
   <header>
     <div class="header_center">
-      <h1>Stuff</h1>
+      <h1><?= $title ?></h1>
       <div class="google_search">
         <form action="http://www.google.com/search" method="GET">
           <input type="text" value="" maxlength="255" size="31" name="q" placeholder="Search Google">
