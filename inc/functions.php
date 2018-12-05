@@ -1,7 +1,7 @@
 <?php
 //require("simplepie/php/autoloader.php");
-$connection = mysql_pconnect("localhost", "angrychi_angryc", "gS87gh7IGHas") or die ("Couldn't connect to server.");
-$db = mysql_select_db("angrychi_portal", $connection) or die ("Couldn't select database");
+$connection = mysqli_connect("localhost", "angrychi_angryc", "gS87gh7IGHas") or die ("Couldn't connect to server.");
+$db = mysqli_select_db($connection,"angrychi_portal") or die ("Couldn't select database");
   $cats = array();
 
 //////////////////////////////////////////
@@ -17,8 +17,8 @@ function get_bookmarks() {
     SELECT   catName, catID, rank
     FROM     link_cat
     ORDER BY rank ";
-  $sql_result = mysql_query($sql, $connection) or die ("Couldn't execute query.");
-  while ($row = mysql_fetch_array($sql_result)) {
+  $sql_result = mysqli_query($connection, $sql) or die ("Couldn't execute query.");
+  while ($row = mysqli_fetch_array($sql_result)) {
     $bookmarks[$row["catName"]] = array();
     $cats[$row["catName"]] = array("catID"=>$row["catID"],"rank"=>$row["rank"]);
   }
@@ -31,8 +31,8 @@ function get_bookmarks() {
 	FROM		links, link_cat
 	WHERE		active = 1 AND catID = cat
 	ORDER BY	rank, linkName";
-  $sql_result = mysql_query($sql, $connection) or die ("Couldn't execute query.");
-  while ($row = mysql_fetch_array($sql_result)) {
+  $sql_result = mysqli_query($connection,$sql) or die ("Couldn't execute query.");
+  while ($row = mysqli_fetch_array($sql_result)) {
     array_push($bookmarks[$row["catName"]],array(
       "linkName" => $row["linkName"],
       "url"      => $row["url"],
@@ -55,8 +55,8 @@ function display_pop_bookmarks() {
 	FROM        links
 	ORDER BY    clicks DESC
 	LIMIT       20";
-  $sql_result = mysql_query($sql, $connection) or die ("Couldn't execute query.");
-  while ($row = mysql_fetch_array($sql_result)) {
+  $sql_result = mysqli_query($connection,$sql) or die ("Couldn't execute query.");
+  while ($row = mysqli_fetch_array($sql_result)) {
     $pop[] = array(
       "linkName" => $row["linkName"],
       "url"      => $row["url"],
@@ -114,8 +114,8 @@ function get_feeds() {
   global $connection,$db;
 
   $sql = "SELECT * FROM feeds WHERE inv = 1 ORDER BY active, feedrank";
-  $sql_result = mysql_query($sql, $connection) or die ("Couldn't execute query.");
-  while ($row = mysql_fetch_array($sql_result)) {
+  $sql_result = mysqli_query($sql, $connection) or die ("Couldn't execute query.");
+  while ($row = mysqli_fetch_array($sql_result)) {
     $feedURL = $row["feedURL"];
     $active = $row["active"];
     $feedID = $row["feedID"];
@@ -150,8 +150,8 @@ function bookmark_cat() {
     SELECT   catName,catID
     FROM     link_cat
     ORDER BY catName ";
-  $sql_result = mysql_query($sql, $connection) or die ("Couldn't execute query.");
-  while ($row = mysql_fetch_array($sql_result)) { ?>
+  $sql_result = mysqli_query($sql, $connection) or die ("Couldn't execute query.");
+  while ($row = mysqli_fetch_array($sql_result)) { ?>
           <option value="<?php echo $row["catID"]; ?>"><?php echo $row["catName"]; ?></option>
 <?php
   }

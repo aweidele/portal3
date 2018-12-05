@@ -1,6 +1,6 @@
-<?php 
+<?php
 session_start();
-include("inc/functions.php");
+require_once("inc/functions.php");
 ?>
 <!DOCTYPE HTML>
 <head>
@@ -44,15 +44,15 @@ include("inc/functions.php");
 
 <div id="wrapper_content">
   <div id="container_content">
-  
+
     <div id="bookmarks" class="blocks">
 <?php display_bookmarks(); ?>
     </div><!-- bookmarks -->
-    
+
     <div id="feeds" class="blocks">
 <?php //get_feeds(); ?>
     </div><!-- feeds -->
-    
+
     <div class="clear"></div>
   </div><!-- container_content -->
 </div><!-- wrapper_content -->
@@ -72,10 +72,10 @@ include("inc/functions.php");
 		<form action="inc/action.php?action=add_bookmark" method="post">
 		  <p><label for="bookmark_name">Name</label><br />
 		  <input type="text" name="bookmark_name" required /></p>
-  
+
 		  <p><label for="bookmark_url">URL</label><br />
 		  <input type="url" name="bookmark_url" required /></p>
-  
+
 		  <p><label for="bookmark_cat">Category</label><br />
 		  <select name="bookmark_cat" id="bookmark_cat">
 			<optgroup label="SELECT A CATEGORY">
@@ -89,7 +89,7 @@ include("inc/functions.php");
 			<input type="text" name="bookmark_cat_add" /><br />
 			<input type="text" name="bookmark_cat_add_rank" style="width: 20%;" />
 		  </p>
-  
+
 		  <p><input type="submit" value="Submit" name="submit" /></p>
 		</form>
 	  </div>
@@ -113,14 +113,14 @@ include("inc/functions.php");
 	    </form>
       </div>
 	</div><!-- control bookmarks -->
-	
+
 	<div id="control_feeds" class="control_panel">
 	  <ul class="manage_bookmarks">
 		<li><a href="#add_feed">Add Feeds</a></li>
 		<li><a href="#edit_feed">Edit/Reorder Feeds</a></li>
 		<li><a href="#delete_feed">Delete Feeds</a></li>
 	  </ul>
-	  
+
 	  <!-- add feeds -->
 	  <div id="add_feeds" class="dialog">
 		<form action="inc/action.php?action=add_feed" method="post">
@@ -131,9 +131,9 @@ include("inc/functions.php");
 		  <p><input type="submit" value="Submit" name="submit" /></p>
 	    </form>
 	  </div>
-	
+
 	</div><!-- control_feeds -->
-  
+
 <?php } else if (isset($_SESSION['pw']) && $_SESSION['pw'] != 'monkeys') { ?>
     <p class="wrong_pw">That was the wrong password.</p>
     <form action="inc/action.php?action=login" method="post">
